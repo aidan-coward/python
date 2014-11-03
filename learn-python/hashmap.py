@@ -6,18 +6,19 @@ def new(num_buckets=256):
     return aMap
 
 def hash_key(aMap, key):
-    """Given a key this will creat a number and then convert it to an index for the aMap's buckets."""
+    """Given a key this will create a number and then convert it to
+    an index for the aMap's buckets."""
     return hash(key) % len(aMap)
 
 def get_bucket(aMap, key):
-    """Given a key, find the bucket where it would go."""
+    """Given a key, find the bucket at that location."""
     bucket_id = hash_key(aMap, key)
     return aMap[bucket_id]
-
+        
 def get_slot(aMap, key, default=None):
     """
-    Returns the index key, and value of a slot found in a bucket.
-    Returns -1, key and default (None if not set) when not found.
+    Returns the index, key, and value of a slot found in a bucket.
+    Returns -1, key, and default (None if not set) when not found.
     """
     bucket = get_bucket(aMap, key)
 
@@ -27,7 +28,7 @@ def get_slot(aMap, key, default=None):
             return i, k, v
 
     return -1, key, default
-       
+
 def get(aMap, key, default=None):
     """Gets the value in a bucket for the given key, or the default."""
     i, k, v = get_slot(aMap, key, default=default)
@@ -36,14 +37,14 @@ def get(aMap, key, default=None):
 def set(aMap, key, value):
     """Sets the key to the value, replacing any existing value."""
     bucket = get_bucket(aMap, key)
-    iq k, v = get_slot(aMap, key)
+    i, k, v = get_slot(aMap, key)
 
     if i >= 0:
-        # the key exists, replace it
-        bucket[i] = (key, value))
-    else:
-        # the key does not exist, append to create it
-        bucket.append((key, value))
+        #the key exists, replace it
+        bucket[i] = (key, value)
+    else: 
+        #the key does not, append to create it
+        bucket.append((key,value))
 
 def delete(aMap, key):
     """Deletes the given key from the Map."""
@@ -60,5 +61,4 @@ def list(aMap):
     for bucket in aMap:
         if bucket:
             for k, v in bucket:
-                pint k, v
-
+                print k, v
