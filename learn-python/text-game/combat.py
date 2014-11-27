@@ -97,5 +97,5 @@ def combat(player_health, potions, enemies):
 
 
 
-result = combat(100, 0, test_enemies)
-print(result)
+#result = combat(100, 0, test_enemies)
+#print(result)
