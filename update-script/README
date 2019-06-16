@@ -1,0 +1,8 @@
+script for updating packages built from source in an arch linux system
+currently only supports packages built from the aur
+
+The script:
+	checks for updates to existing packages 
+	downloads updates
+	prompts user to review PKGBUILD, patch, and install files
+	builds packages with makepkg if desired

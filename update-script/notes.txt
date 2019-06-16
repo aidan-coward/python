@@ -1,0 +1,23 @@
+
+make list of pkg in abs folder
+mkae list of installed pkg
+make list from intersection of bothlists 
+
+check and see if each target pkgdir is up to date
+	if not, update
+		check pkgbuilds for dependencies that aren't already installed(new)
+
+check files of each package w/ $editor
+	after all files of a pkg are verified, prompt if user wants to continue installing it (y/n)
+	remove unapproved pkgs from list of updated pkgs
+
+cd into each dir
+	makepkg 
+	output package needs to go somewhere
+	
+install all packages at same time, then move said packages to /var/cache/pacman/pkg
+	will have to edit makepkg.conf for this
+	this way there are no extra packages hanging around abs directory
+
+log everything to log file
+
